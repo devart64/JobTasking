@@ -21,11 +21,17 @@ class TacheRealise
      * @ORM\Column(type="integer")
      */
     private $IDUtilisateur;
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
 
     /**
      * @ORM\Column(type="integer")
      */
     private $IDTache;
+
+
 
     public function getId(): ?int
     {
@@ -55,4 +61,22 @@ class TacheRealise
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param mixed $date
+     */
+    public function setDate($date): void
+    {
+        $this->date = $date;
+    }
+
+
 }
