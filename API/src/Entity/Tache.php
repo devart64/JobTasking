@@ -27,6 +27,12 @@ class Tache
      */
     private $point;
 
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $icon;
+
     /**
      * @ORM\Column(type="integer")
      */
@@ -72,4 +78,22 @@ class Tache
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * @param mixed $icon
+     */
+    public function setIcon($icon): void
+    {
+        $this->icon = $icon;
+    }
+
+
 }
