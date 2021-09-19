@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\CategorieTache;
 use App\Entity\Tache;
+use App\Entity\Utilisateur;
 use App\Repository\CategorieTacheRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -32,8 +33,9 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linktoRoute('Back to the website', 'fas fa-home', 'admin');
+        yield MenuItem::linktoRoute('Accueil', 'fas fa-home', 'admin');
         yield MenuItem::linkToCrud('Pièces concernées', 'fas fa-street-view', CategorieTache::class);
         yield MenuItem::linkToCrud('Tâches', 'fas fa-tasks', Tache::class);
+        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users', Utilisateur::class);
     }
 }
