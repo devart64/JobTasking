@@ -13,21 +13,18 @@
     </head>
     <body>
         <header class="header">
-            <h1 class="sr-only">
-                JobTasking
-            </h1>
-
-            <nav class="navbar navbar-expand-xl navbar-light bg-light">
+            <nav class="navbar navbar-light bg-light justify-content-between">
+                <a class="navbar-brand">JobTasking</a>
+                <a class="nav-link" href="{{ path('admin') }}">
+                    Admin
+                </a>
+            </nav>
+           {# <nav class="navbar navbar-expand-xl navbar-light bg-light">
+                <a class="navbar-brand" href="#">JobTasking</a>
                 <div class="container mt-4 mb-3">
-
-
-                    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#header-menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Show/Hide navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
                     <div class="collapse navbar-collapse" id="header-menu">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item mr-3">
+                        <ul class="navbar-nav mr-0">
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ path('admin') }}">
                                     Admin
                                 </a>
@@ -35,13 +32,8 @@
                         </ul>
                     </div>
                 </div>
-            </nav>
-
-            <nav class="bg-light border-bottom">
-                <div class="container">
-
-                </div>
-            </nav>
+            </nav>#}
+            
         </header>
 
         <main role="main" class="container mt-5">
@@ -49,16 +41,11 @@
         </main>
 
         <footer class="mt-7 px-3 py-5 text-center text-muted">
-            <p>
-
-            </p>
-            <p>
-                <a href="#" class="text-white">Back to top</a>
-            </p>
+        
         </footer>
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+            {{ encore_entry_script_tags('base') }}
         {% endblock %}
     </body>
 </html>
