@@ -12,40 +12,16 @@
         {% endblock %}
     </head>
     <body>
-        <header class="header">
-            <nav class="navbar navbar-light bg-light justify-content-between">
-                <a class="navbar-brand">JobTasking</a>
-                <a class="nav-link" href="{{ path('admin') }}">
-                    Admin
-                </a>
-            </nav>
-           {# <nav class="navbar navbar-expand-xl navbar-light bg-light">
-                <a class="navbar-brand" href="#">JobTasking</a>
-                <div class="container mt-4 mb-3">
-                    <div class="collapse navbar-collapse" id="header-menu">
-                        <ul class="navbar-nav mr-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('admin') }}">
-                                    Admin
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>#}
-            
-        </header>
+        <header class="header" id="header_home_page"></header>
 
         <main role="main" class="container mt-5">
             {% block body %}{% endblock %}
         </main>
 
-        <footer class="mt-7 px-3 py-5 text-center text-muted">
-        
-        </footer>
+        <footer class="mt-7 px-3 py-5 text-center text-muted" id="footer_home_page"></footer>
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('base') }}
+            {{ encore_entry_script_tags('import') }}
         {% endblock %}
     </body>
 </html>
