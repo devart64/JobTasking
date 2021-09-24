@@ -63,7 +63,7 @@ Encore
 
     // uncomment if you use React
     .enableReactPreset()
-    .addEntry('import', './assets/components/import.js');
+    .addEntry('import', './assets/components/import.js')
 
 
     // uncomment to get integrity="..." attributes on your script & link tags

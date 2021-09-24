@@ -14,6 +14,4 @@ import 'bootstrap';
 import bsCustomFileInput from 'bs-custom-file-input';
 bsCustomFileInput.init()
 
-import './components/import';
-import './components/navigation/navBar';
 

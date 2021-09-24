@@ -3,5 +3,9 @@
 {% block title %}JobTasking{% endblock %}
 
 {% block body %}
-	<div id="root"></div>
+	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+		{{ dump('user connected') }}
+	{% endif %}
+	
+	<div id="root" isUserConneced="{{ is_granted('IS_AUTHENTICATED_FULLY') }}"></div>
 {% endblock %}
