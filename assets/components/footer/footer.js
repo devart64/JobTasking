@@ -4,7 +4,7 @@ import React from "react";
 export default class Footer extends React.Component{
     render() {
         return (
-            <p>© 2021 JobPhoning.com, toute reproduction interdite.</p>
+            <p className='paragraphe-footer'>© 2021 JobPhoning.com, toute reproduction interdite.</p>
         );
     }
 }
