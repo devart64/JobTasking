@@ -14,7 +14,7 @@ export default class EntryPoint extends React.Component{
     render() {
         return (
             <div id="row">
-                <h1>Welcome to JobTasking !</h1>
+                <h1>Welcome to JobCleaning !</h1>
             </div>
         );
     }

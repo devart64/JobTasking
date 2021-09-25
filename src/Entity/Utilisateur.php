@@ -57,7 +57,7 @@ class Utilisateur implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     #[Groups(['utilisateur:list', 'utilisateur:item'])]
-    private $imageProfil;
+    private $imageProfil = '';
 
     /**
      * @ORM\Column(type="string", length=255)
