@@ -12,8 +12,8 @@ use ApiPlatform\Core\Annotation\ApiResource;
 /**
  * @ORM\Entity(repositoryClass=PieceRepository::class)
  * @ApiResource(
- *     collectionOperations={"get"={"normalization_context"={"groups"="categorieTache:list"}}},
- *     itemOperations={"get"={"normalization_context"={"groups"="categorieTache:item"}}},
+ *     collectionOperations={"get"={"normalization_context"={"groups"="piece:list"}}},
+ *     itemOperations={"get"={"normalization_context"={"groups"="piece:item"}}},
  *     order={"id"="ASC"},
  *     paginationEnabled=false
  * )

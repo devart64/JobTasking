@@ -34,13 +34,13 @@ class TacheCrudController extends AbstractCrudController
     public function configureFilters(Filters $filters): Filters
     {
         return $filters
-            ->add(EntityFilter::new('categorieTache'));
+            ->add(EntityFilter::new('piece'));
     }
 
     public function configureFields(string $pageName): iterable
     {
 
-        yield AssociationField::new('categorieTache');
+        yield AssociationField::new('piece');
         yield TextField::new('intitule');
         yield NumberField::new('point');
         yield TextField::new('icon');
