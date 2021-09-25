@@ -19,7 +19,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
  *     paginationEnabled=false
  * )
  *
- * @ApiFilter(SearchFilter::class, properties={"categorieTache": "exact"})
+ * @ApiFilter(SearchFilter::class, properties={"piece": "exact"})
  */
 class Tache
 {
@@ -52,11 +52,11 @@ class Tache
 
 
     /**
-     * @ORM\ManyToOne(targetEntity=CategorieTache::class, inversedBy="tache")
+     * @ORM\ManyToOne(targetEntity=Piece::class, inversedBy="tache")
      * @ORM\JoinColumn(nullable=false)
      */
     #[Groups(['tache:list', 'tache:item'])]
-    private $categorieTache;
+    private $piece;
 
     public function getId(): ?int
     {
@@ -107,14 +107,14 @@ class Tache
         $this->icon = $icon;
     }
 
-    public function getCategorieTache(): ?CategorieTache
+    public function getPiece(): ?Piece
     {
-        return $this->categorieTache;
+        return $this->piece;
     }
 
-    public function setCategorieTache(?CategorieTache $categorieTache): self
+    public function setPiece(?Piece $piece): self
     {
-        $this->categorieTache = $categorieTache;
+        $this->piece = $piece;
 
         return $this;
     }

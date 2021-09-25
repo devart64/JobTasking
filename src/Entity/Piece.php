@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\CategorieTacheRepository;
+use App\Repository\PieceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,7 +10,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
- * @ORM\Entity(repositoryClass=CategorieTacheRepository::class)
+ * @ORM\Entity(repositoryClass=PieceRepository::class)
  * @ApiResource(
  *     collectionOperations={"get"={"normalization_context"={"groups"="categorieTache:list"}}},
  *     itemOperations={"get"={"normalization_context"={"groups"="categorieTache:item"}}},
@@ -18,25 +18,25 @@ use ApiPlatform\Core\Annotation\ApiResource;
  *     paginationEnabled=false
  * )
  */
-class CategorieTache
+class Piece
 {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    #[Groups(['categorieTache:list', 'categorieTache:item'])]
+    #[Groups(['piece:list', 'piece:item'])]
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    #[Groups(['categorieTache:list', 'categorieTache:item'])]
+    #[Groups(['piece:list', 'piece:item'])]
     private $intitule;
 
 
     /**
-     * @ORM\OneToMany(targetEntity=Tache::class, mappedBy="categorieTache", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Tache::class, mappedBy="piece", orphanRemoval=true)
      */
     private $tache;
 
@@ -80,7 +80,7 @@ class CategorieTache
     {
         if (!$this->tache->contains($tache)) {
             $this->tache[] = $tache;
-            $tache->setCategorieTache($this);
+            $tache->setPiece($this);
         }
 
         return $this;
@@ -90,8 +90,8 @@ class CategorieTache
     {
         if ($this->tache->removeElement($tache)) {
             // set the owning side to null (unless already changed)
-            if ($tache->getCategorieTache() === $this) {
-                $tache->setCategorieTache(null);
+            if ($tache->getPiece() === $this) {
+                $tache->setPiece(null);
             }
         }
 

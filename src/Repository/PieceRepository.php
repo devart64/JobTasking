@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\CategorieTache;
+use App\Entity\Piece;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method CategorieTache|null find($id, $lockMode = null, $lockVersion = null)
- * @method CategorieTache|null findOneBy(array $criteria, array $orderBy = null)
- * @method CategorieTache[]    findAll()
- * @method CategorieTache[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Piece|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Piece|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Piece[]    findAll()
+ * @method Piece[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CategorieTacheRepository extends ServiceEntityRepository
+class PieceRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, CategorieTache::class);
+        parent::__construct($registry, Piece::class);
     }
 
     // /**
-    //  * @return CategorieTache[] Returns an array of CategorieTache objects
+    //  * @return Piece[] Returns an array of Piece objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class CategorieTacheRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?CategorieTache
+    public function findOneBySomeField($value): ?Piece
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')

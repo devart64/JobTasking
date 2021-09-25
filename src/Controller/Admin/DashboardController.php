@@ -2,10 +2,10 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\CategorieTache;
+use App\Entity\Piece;
 use App\Entity\Tache;
 use App\Entity\Utilisateur;
-use App\Repository\CategorieTacheRepository;
+use App\Repository\PieceRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -21,7 +21,7 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
         $routeBuilder = $this->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(CategorieTacheCrudController::class)->generateUrl();
+        $url = $routeBuilder->setController(PieceCrudController::class)->generateUrl();
         return $this->redirect($url);
     }
 
@@ -34,7 +34,7 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoRoute('Accueil', 'fas fa-home', 'home');
-        yield MenuItem::linkToCrud('Pièces concernées', 'fas fa-street-view', CategorieTache::class);
+        yield MenuItem::linkToCrud('Pièces concernées', 'fas fa-street-view', Piece::class);
         yield MenuItem::linkToCrud('Tâches', 'fas fa-tasks', Tache::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users', Utilisateur::class);
     }
