@@ -4,7 +4,7 @@ import React from "react";
 export default class Footer extends React.Component{
     render() {
         return (
-            <p>JobTasking 2021 - tous droits réservés</p>
+            <p>© 2021 JobPhoning.com, toute reproduction interdite.</p>
         );
     }
 }

@@ -39,11 +39,9 @@ class TacheCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-
         yield AssociationField::new('piece');
         yield TextField::new('intitule');
         yield NumberField::new('point');
         yield TextField::new('icon');
-
     }
 }
