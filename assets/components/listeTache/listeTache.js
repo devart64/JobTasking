@@ -7,7 +7,7 @@ export default class ListeTache extends React.Component {
         super(props);
 
         this.state = {
-            urlListeTache: 'http://127.0.0.1:8000/api/taches',
+            urlListeTache: 'http://jobcleaning.fr/api/taches',
             entries: []
         };
     }
