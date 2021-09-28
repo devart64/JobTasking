@@ -12,15 +12,8 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ORM\Entity(repositoryClass=TacheRepository::class)
- *  @ApiResource(
- *     collectionOperations={"get"={"normalization_context"={"groups"="tache:list"}}},
- *     itemOperations={"get"={"normalization_context"={"groups"="tache:item"}}},
- *     order={"id"="ASC"},
- *     paginationEnabled=false
- * )
- *
- * @ApiFilter(SearchFilter::class, properties={"piece": "exact"})
  */
+#[ApiResource]
 class Tache
 {
     /**
@@ -28,26 +21,22 @@ class Tache
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    #[Groups(['tache:list', 'tache:item'])]
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    #[Groups(['tache:list', 'tache:item'])]
     private $intitule;
 
     /**
      * @ORM\Column(type="integer")
      */
-    #[Groups(['tache:list', 'tache:item'])]
     private $point;
 
 
     /**
      * @ORM\Column(type="string")
      */
-    #[Groups(['tache:list', 'tache:item'])]
     private $icon;
 
 
@@ -55,7 +44,6 @@ class Tache
      * @ORM\ManyToOne(targetEntity=Piece::class, inversedBy="tache")
      * @ORM\JoinColumn(nullable=false)
      */
-    #[Groups(['tache:list', 'tache:item'])]
     private $piece;
 
     public function getId(): ?int

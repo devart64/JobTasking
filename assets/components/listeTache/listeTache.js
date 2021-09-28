@@ -22,7 +22,9 @@ export default class ListeTache extends React.Component {
                     return response.json()
                 }
             }).then(data => {
-            console.log(data)
+            this.setState({
+                entries: data['hydra:member']
+            })
         })
     }
 
@@ -32,10 +34,15 @@ export default class ListeTache extends React.Component {
 
 
     render() {
+        const todoItems = this.state.entries.map((todo) =>
+            <li key={todo.id}>      {todo.intitule}
+            </li>
+        );
         return (
             <div className="row" >
+                <h3>Liste de tâche restante pour aujourd'hui:</h3>
                 <ul >
-
+                    {todoItems}
                 </ul >
             </div >
         )

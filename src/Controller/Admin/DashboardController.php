@@ -5,7 +5,6 @@ namespace App\Controller\Admin;
 use App\Entity\Piece;
 use App\Entity\Tache;
 use App\Entity\Utilisateur;
-use App\Repository\PieceRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
