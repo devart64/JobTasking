@@ -5,7 +5,7 @@ export default class Tache extends React.Component {
         super(props);
 
         this.state = {
-            urlPath : 'http://127.0.0.1:8000',
+            urlPath : 'http://jobcleaning.fr',
             urlTache: this.props.urlTache,
             tache   : ''
         };
