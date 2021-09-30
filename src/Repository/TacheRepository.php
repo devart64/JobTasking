@@ -20,7 +20,7 @@ class TacheRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Tache[] Returns an array of Tache objects
+    //  * @return Tache.js[] Returns an array of Tache.js objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class TacheRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Tache
+    public function findOneBySomeField($value): ?Tache.js
     {
         return $this->createQueryBuilder('t')
             ->andWhere('t.exampleField = :val')

@@ -1,22 +1,22 @@
 import React from 'react';
 import Tache from "./Tache";
+import ListeTache from "./listeTache";
 
 
 
-export default class ListeTache extends React.Component {
+export default class ListePiece extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            pieceID: this.props.pieceID,
-            urlListeTache: 'http://127.0.0.1:8000/api/pieces/',
-            taches: []
+            urlListePiece: 'http://127.0.0.1:8000/api/pieces',
+            entries: []
         };
     }
 
     query = () => {
-        fetch(this.state.urlListeTache+this.state.pieceID)
+        fetch(this.state.urlListePiece)
             .then(response => {
                 if (!response.ok) {
                     console.log(response.statusText);
@@ -25,9 +25,8 @@ export default class ListeTache extends React.Component {
                     return response.json()
                 }
             }).then(data => {
-                console.log(data.tache)
             this.setState({
-                taches: data.tache
+                entries: data['hydra:member']
             })
         })
     }
@@ -38,15 +37,19 @@ export default class ListeTache extends React.Component {
 
 
     render() {
-        let count = 1;
-        const taches = this.state.taches.map((tache) =>
-
-            <Tache key={count++} urlTache={tache} />
+        const pieces = this.state.entries.map((piece) =>
+            <li key={piece.id}>
+                {piece.intitule}
+                <ul>
+                    <ListeTache pieceID={piece.id} />
+                </ul>
+            </li>
         );
         return (
             <div className="row" >
+                <h3>Liste de tâche restante pour aujourd'hui:</h3>
                 <ul >
-                    {taches}
+                    {pieces}
                 </ul >
             </div >
         )

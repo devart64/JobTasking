@@ -2,6 +2,7 @@ import React from "react";
 import imageCleaner from "../../images/workerCartoon.png";
 import ReactDOM from "react-dom";
 import ListeTache from "../listeTache/listeTache";
+import ListePiece from "../listeTache/listePiece";
 
 class RenderHome extends React.Component {
     constructor(props) {
@@ -44,7 +45,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <div id="row" className='container_home_page' >
-                {this.state.isHome ? <RenderHome isHome={this.state.isHome} /> : <ListeTache />}
+                {this.state.isHome ? <RenderHome isHome={this.state.isHome} /> : <ListePiece />}
                     <div className={this.state.classCss} >
                         <button className='btn btn-primary mt-2' onClick={this.handleClick} >Voir les tâches restantes du jour
                         </button >

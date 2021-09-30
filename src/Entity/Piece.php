@@ -11,13 +11,8 @@ use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * @ORM\Entity(repositoryClass=PieceRepository::class)
- * @ApiResource(
- *     collectionOperations={"get"={"normalization_context"={"groups"="piece:list"}}},
- *     itemOperations={"get"={"normalization_context"={"groups"="piece:item"}}},
- *     order={"id"="ASC"},
- *     paginationEnabled=false
- * )
  */
+#[ApiResource]
 class Piece
 {
     /**
@@ -25,13 +20,11 @@ class Piece
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    #[Groups(['piece:list', 'piece:item'])]
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    #[Groups(['piece:list', 'piece:item'])]
     private $intitule;
 
 
