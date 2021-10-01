@@ -1,5 +1,5 @@
 import React from "react";
-import imageCleaner from "../../images/workerCartoon.png";
+import imageCleaner from "../../../public/images/workerCartoon.png";
 import ReactDOM from "react-dom";
 import ListeTache from "../listeTache/listeTache";
 import ListePiece from "../listeTache/listePiece";
