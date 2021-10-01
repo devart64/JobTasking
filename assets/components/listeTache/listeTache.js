@@ -10,7 +10,7 @@ export default class ListeTache extends React.Component {
 
         this.state = {
             pieceID: this.props.pieceID,
-            urlListeTache: 'http://jobcleaning.fr/api/pieces/',
+            urlListeTache: 'http://127.0.0.1:8000/api/pieces/',
             taches: []
         };
     }

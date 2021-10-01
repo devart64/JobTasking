@@ -10,7 +10,7 @@ export default class ListePiece extends React.Component {
         super(props);
 
         this.state = {
-            urlListePiece: 'http://jobcleaning.fr/api/pieces',
+            urlListePiece: 'http://127.0.0.1:8000/api/pieces',
             entries: []
         };
     }

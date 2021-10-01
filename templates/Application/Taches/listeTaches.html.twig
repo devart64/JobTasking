@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des tâches{% endblock %}
+
+{% block body %}
+	{% for Piece in listePieces %}
+		<h3 >{{ Piece.intitule }}</h3 >
+		{% for Tache in Piece.getTache() %}
+			<p>{{ Tache.intitule }}</p>
+		{% endfor %}
+	{% endfor %}
+{% endblock %}
