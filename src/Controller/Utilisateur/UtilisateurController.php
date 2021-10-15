@@ -17,4 +17,10 @@ class UtilisateurController extends AbstractController
         ]);
     }
 
+    #[Route('/profil', name: 'profil')]
+    public function profil(): Response
+    {
+        return $this->render('Application/utilisateur/profil.html.twig');
+    }
+
 }

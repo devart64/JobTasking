@@ -7709,13 +7709,6 @@ sub {
         width: calc(100% - 3.75rem);
         margin-left: 3.75rem; } }
 
-[data-sidebar-style="mini"] .header {
-    width: calc(100% - 3.75rem);
-    margin-left: 3.75rem; }
-
-[data-sidebar-style="compact"] .header {
-    width: calc(100% - 9.375rem);
-    margin-left: 9.375rem; }
 
 [data-header-position="fixed"] .header {
     position: fixed;

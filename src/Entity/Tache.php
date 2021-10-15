@@ -39,6 +39,11 @@ class Tache
      */
     private $icon;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $urlQrCode;
+
 
     /**
      * @ORM\ManyToOne(targetEntity=Piece::class, inversedBy="tache")
@@ -106,6 +111,32 @@ class Tache
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     * @see urlQrCode
+     */
+    public function getUrlQrCode()
+    {
+        if ($this->urlQrCode == '') {
+            return '';
+        }
+        $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://".$_SERVER['SERVER_NAME'];
+        return $actual_link.$this->urlQrCode;
+    }
+
+    /**
+     * @param mixed $urlQrCode
+     * @return Tache
+     * @see urlQrCode
+     */
+    public function setUrlQrCode(string $urlQrCode)
+    {
+        $this->urlQrCode = $urlQrCode;
+        return $this;
+    }
+
+
 
 
 }

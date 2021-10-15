@@ -1,35 +1,82 @@
 <!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html lang="en" >
+<head >
+	<meta charset="utf-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
+	
+	<title >{% block title %}Welcome!{% endblock %}</title >
+	
+	{% block stylesheets %}
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.1.95/css/materialdesignicons.min.css" >
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,500i,600,600i&display=swap" rel="stylesheet" />
+		{{ encore_entry_link_tags('app') }}
+	{% endblock %}
+</head >
+<body >
+<header class="header" id="header_home_page" >
+	<nav class="navbar navbar-light bg-light" >
+		<a class="navbar-brand" href="{{ path('home') }}" >JobCleaning</a >
+		{% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+			<div class="header-right" >
+				<ul class="clearfix" >
+					{% if is_granted('ROLE_ADMIN') %}
+						<li class="icons dropdown">
+							<a class="nav-link" href="{{ path('admin') }}" >
+								Admin
+							</a >
+						</li >
+					{% endif %}
+					
+					<li class="icons dropdown" >
+						<div class="user-img c-pointer position-relative" data-toggle="dropdown" >
+							<span class="activity active" ></span >
+							<img src="images/user/1.png" height="40" width="40" alt="" >
+						</div >
+						<div class="drop-down dropdown-profile   dropdown-menu" >
+							<div class="dropdown-content-body" >
+								<ul >
+									<li >
+										<a href="app-profile.html" ><i class="icon-user" ></i >
+											<span >Profile</span ></a >
+									</li >
+									<li >
+										<a href="email-inbox.html" ><i class="icon-envelope-open" ></i >
+											<span >Inbox</span >
+											<div class="badge gradient-3 badge-pill badge-primary" >3</div >
+										</a >
+									</li >
+									
+									<hr class="my-2" >
+									<li >
+										<a href="page-lock.html" ><i class="icon-lock" ></i > <span >Lock Screen</span ></a >
+									</li >
+									<li ><a href="page-login.html" ><i class="icon-key" ></i >
+											<span >Logout</span ></a ></li >
+								</ul >
+							</div >
+						</div >
+					</li >
+				</ul >
+			</div >
+		{% endif %}
+	
+	
+	</nav >
+</header >
 
-        <title>{% block title %}Welcome!{% endblock %}</title>
+<main role="main" class="container mt-5" >
+	{% block body %}{% endblock %}
+</main >
 
-        {% block stylesheets %}
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.1.95/css/materialdesignicons.min.css" >
-            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,500i,600,600i&display=swap" rel="stylesheet" />
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        <header class="header" id="header_home_page">
-            <nav class="navbar navbar-light bg-light justify-content-between" >
-                <a class="navbar-brand" href="{{ path('home') }}" >JobCleaning</a >
-                <a class="nav-link" href="{{ path('admin') }}" >
-                    Admin
-                </a >
-            </nav >
-        </header>
+<footer class="mt-7 px-2 py-2 text-center text-muted" id="footer_home_page" ></footer >
 
-        <main role="main" class="container mt-5">
-            {% block body %}{% endblock %}
-        </main>
-
-        <footer class="mt-7 px-2 py-2 text-center text-muted" id="footer_home_page"></footer>
-
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('import') }}#}
-        {% endblock %}
-    </body>
-</html>
+{% block javascripts %}
+	{# {{ encore_entry_script_tags('import') }} #}
+	<script src="{{ asset('plugins/common/common.min.js') }}"></script>
+	<script src="{{ asset("js/custom.min.js") }}"></script>
+	<script src="{{ asset('js/settings.js') }}"></script>
+	<script src="{{ asset('js/gleek.js') }}"></script>
+	<script src="{{ asset('js/styleSwitcher.js') }}"></script>
+{% endblock %}
+</body >
+</html >
