@@ -6,7 +6,7 @@
 	{% for Piece in listePieces %}
 		<h3 >{{ Piece.intitule }}</h3 >
 		{% for Tache in Piece.getTache() %}
-			<p>{{ Tache.intitule }}</p>
+			<a href="{{ path('tache', {'id':Tache.id}) }}">{{ Tache.intitule }}</a>
 		{% endfor %}
 	{% endfor %}
 	<form action="" >
