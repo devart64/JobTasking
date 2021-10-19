@@ -33,4 +33,16 @@ class QrCodeController extends AbstractController
             'qrCode' => $qrCode
         ]);
     }
+
+    /**
+     * @Route("/scanner", name="scanner")
+     * @param Request $request
+     * @return Response
+     */
+    public function ScannerQrCode(Request $request): Response
+    {
+        return $this->render('qrCode/scanner.html.twig');
+    }
+
+
 }

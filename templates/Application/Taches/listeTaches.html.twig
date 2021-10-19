@@ -5,9 +5,12 @@
 {% block body %}
 	{% for Piece in listePieces %}
 		<h3 >{{ Piece.intitule }}</h3 >
-		{% for Tache in Piece.getTache() %}
-			<a href="{{ path('tache', {'id':Tache.id}) }}">{{ Tache.intitule }}</a>
-		{% endfor %}
+		<ul>
+			{% for Tache in Piece.getTache() %}
+				<li><a href="{{ path('tache', {'id':Tache.id}) }}"><i class="mdi {{ Tache.icon }}"></i> {{ Tache.intitule }}</a></li>
+			{% endfor %}
+		</ul>
+
 	{% endfor %}
 	<form action="" >
 		<div class="row">
