@@ -15,6 +15,7 @@ const fileQrResult = document.getElementById('file-qr-result');
 
 function setResult(label, result) {
     label.textContent = result;
+    alert(result);
     camQrResultTimestamp.textContent = new Date().toString();
     label.style.color = 'teal';
     clearTimeout(label.highlightTimeout);
