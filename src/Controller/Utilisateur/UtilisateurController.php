@@ -9,13 +9,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class UtilisateurController extends AbstractController
 {
 
-    #[Route('/login', name: 'login')]
-    public function login(): Response
-    {
-        return $this->render('default/index.html.twig', [
-            'controller_name' => 'DefaultController',
-        ]);
-    }
+
+
+
+
 
     #[Route('/profil', name: 'profil')]
     public function profil(): Response

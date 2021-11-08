@@ -46,5 +46,14 @@ class TacheManager
         }
     }
 
+    /**
+     * [Description de la fonction attributionTache]
+     * @author Stephen
+     * @created 03/11/2021
+     */
+    public final function attributionTache(): void {
+
+    }
+
 
 }

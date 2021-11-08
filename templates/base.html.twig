@@ -14,54 +14,53 @@
 </head >
 <body >
 <header class="header" id="header_home_page" >
-	<nav class="navbar navbar-light bg-light" >
+	
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" >
 		<a class="navbar-brand" href="{{ path('home') }}" >JobCleaning</a >
-		{% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
-			<div class="header-right" >
-				<ul class="clearfix" >
-					{% if is_granted('ROLE_ADMIN') %}
-						<li class="icons dropdown">
-							<a class="nav-link" href="{{ path('admin') }}" >
-								Admin
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+			<span class="navbar-toggler-icon" ></span >
+		</button >
+		
+		<div class="collapse navbar-collapse" id="navbarSupportedContent" >
+			<ul class="navbar-nav mr-auto" >
+				<li class="nav-item active" >
+					<a class="nav-link" href="#" >Scanner </a >
+				</li >
+				<li class="nav-item" >
+					<a class="nav-link" href="#" >Liste des taches</a >
+				</li >
+				<li class="nav-item" >
+					<a class="nav-link" href="#" >Taches effectuées</a >
+				</li >
+				<li class="nav-item" >
+					<a class="nav-link" href="#" >Classement</a >
+				</li >
+				<li class="nav-item dropdown" >
+					{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+						{% if is_granted('ROLE_ADMIN')%}
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+								Dropdown
 							</a >
-						</li >
-					{% endif %}
-					
-					<li class="icons dropdown" >
-						<div class="user-img c-pointer position-relative" data-toggle="dropdown" >
-							<span class="activity active" ></span >
-							<img src="images/user/1.png" height="40" width="40" alt="" >
-						</div >
-						<div class="drop-down dropdown-profile   dropdown-menu" >
-							<div class="dropdown-content-body" >
-								<ul >
-									<li >
-										<a href="app-profile.html" ><i class="icon-user" ></i >
-											<span >Profile</span ></a >
-									</li >
-									<li >
-										<a href="email-inbox.html" ><i class="icon-envelope-open" ></i >
-											<span >Inbox</span >
-											<div class="badge gradient-3 badge-pill badge-primary" >3</div >
-										</a >
-									</li >
-									
-									<hr class="my-2" >
-									<li >
-										<a href="page-lock.html" ><i class="icon-lock" ></i > <span >Lock Screen</span ></a >
-									</li >
-									<li ><a href="page-login.html" ><i class="icon-key" ></i >
-											<span >Logout</span ></a ></li >
-								</ul >
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+								
+								<a class="dropdown-item" href="{{ path('admin') }}" >Administration</a >
+								
+								<a class="link" href="{{ path('app_logout') }}" >Déconnexion</a >
 							</div >
-						</div >
-					</li >
-				</ul >
-			</div >
-		{% endif %}
-	
-	
+						{% else %}
+							<a class="link" href="{{ path('app_logout') }}" >Déconnexion</a >
+						{% endif %}
+						
+					{% else %}
+						<a class="link" href="{{ path('app_login') }}" >Connexion</a >
+					{% endif %}
+				
+				</li >
+			</ul >
+		</div >
 	</nav >
+
+
 </header >
 
 <main role="main" class="container mt-5" >
@@ -72,11 +71,11 @@
 
 {% block javascripts %}
 	{# {{ encore_entry_script_tags('import') }} #}
-	<script src="{{ asset('plugins/common/common.min.js') }}"></script>
-	<script src="{{ asset("js/custom.min.js") }}"></script>
-	<script src="{{ asset('js/settings.js') }}"></script>
-	<script src="{{ asset('js/gleek.js') }}"></script>
-	<script src="{{ asset('js/styleSwitcher.js') }}"></script>
+	<script src="{{ asset('plugins/common/common.min.js') }}" ></script >
+	<script src="{{ asset("js/custom.min.js") }}" ></script >
+	<script src="{{ asset('js/settings.js') }}" ></script >
+	<script src="{{ asset('js/gleek.js') }}" ></script >
+	<script src="{{ asset('js/styleSwitcher.js') }}" ></script >
 {% endblock %}
 </body >
 </html >

@@ -4,6 +4,7 @@ namespace App\Controller\Application;
 
 use App\Domain\TacheManager;
 use App\Entity\Tache;
+use App\Entity\TacheRealise;
 use App\Services\QrcodeService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,6 +32,20 @@ class ApplicationController extends AbstractController
 
         $TacheManager = new TacheManager($EntityManager);
         $TacheManager->gestionQrCodeTache($Tache, $qrcodeService);
+
+        if (in_array('ROLE_USER', $this->getUser()->getRoles())) {
+            $TacheRealise = new TacheRealise();
+            $TacheRealise->setIDUtilisateur($this->getUser()->getID());
+            $TacheRealise->setDate(new \DateTime());
+            $TacheRealise->setIDTache($id);
+            $EntityManager->persist($TacheRealise);
+            $EntityManager->flush();
+        }
+
+
+        // si l'utilisateur connecté à le role user alors on lui enregistre une tache réalisée
+        // par la suite il faudra tester les contraintes temporelles
+
         return $this->render('Application/Taches/tache.html.twig', [
             'Tache' => $Tache
         ]);
