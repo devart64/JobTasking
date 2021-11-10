@@ -7,6 +7,7 @@ use App\Entity\Tache;
 use App\Entity\TacheRealise;
 use App\Services\QrcodeService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -18,6 +19,17 @@ class ApplicationController extends AbstractController
         $EntityManager = $this->getDoctrine()->getManager();
         $TacheManager = new TacheManager($EntityManager);
         $ListePieces = $TacheManager->getListePieces();
+        return $this->render('Application/Taches/listeTaches.html.twig', [
+            'listePieces' => $ListePieces
+        ]);
+    }
+
+    #[Route('/liste-taches-filtre', name: 'liste-taches-filtre')]
+    public final function listeTachesFiltres(Request $Request): Response
+    {
+        $EntityManager = $this->getDoctrine()->getManager();
+        $TacheManager = new TacheManager($EntityManager);
+        $ListePieces = $TacheManager->getListeTacheFiltre($Request);
         return $this->render('Application/Taches/listeTaches.html.twig', [
             'listePieces' => $ListePieces
         ]);

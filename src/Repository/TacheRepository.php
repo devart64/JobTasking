@@ -22,19 +22,17 @@ class TacheRepository extends ServiceEntityRepository
     // /**
     //  * @return Tache.js[] Returns an array of Tache.js objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public final function findByIdPiece($IDPiece)
     {
         return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('t.piece = :piece')
+            ->setParameter('piece', $IDPiece)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Tache.js

@@ -7,6 +7,7 @@ use App\Entity\Tache;
 use App\Services\QrcodeService;
 use Doctrine\ORM\EntityManager;
 use PDO;
+use Symfony\Component\HttpFoundation\Request;
 
 class TacheManager
 {
@@ -21,6 +22,14 @@ class TacheManager
     {
         $arrayTache = $this->entityManager->getRepository(Tache::class)->findAll();
         dd($arrayTache);
+    }
+    public function getListeTacheFiltre(Request $Request): array
+    {
+        $IDPiece = $Request->get('IDPiece');
+        $Piece = $this->entityManager->getRepository(Piece::class)->find($IDPiece);
+        return $this->entityManager->getRepository(Tache::class)->findBy(
+            ['piece' => $Piece]);
+
     }
 
     public function getListePieces(): array
