@@ -23,12 +23,24 @@ class TacheManager
         $arrayTache = $this->entityManager->getRepository(Tache::class)->findAll();
         dd($arrayTache);
     }
+
     public function getListeTacheFiltre(Request $Request): array
     {
         $IDPiece = $Request->get('IDPiece');
-        $Piece = $this->entityManager->getRepository(Piece::class)->find($IDPiece);
-        return $this->entityManager->getRepository(Tache::class)->findBy(
-            ['piece' => $Piece]);
+
+        $array = [];
+        if ($IDPiece == 'all') {
+            $array = $this->getListePieces();
+        } else {
+            $Piece = $this->entityManager->getRepository(Piece::class)->find($IDPiece);
+
+            
+            $array[] = $Piece;
+        }
+
+
+
+        return $array;
 
     }
 

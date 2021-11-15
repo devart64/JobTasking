@@ -4,37 +4,30 @@
 
 {% block body %}
 	<form id="formulaire_filtre_liste_tache" action="{{ path('liste-taches-filtre') }}" >
-		<div class="row">
-			<div class="col-md-12 div_inline_flex">
-			<div class="col-md-6 div_inline">
-				<select class="form-control select_liste_tache" name="IDPiece" id="" >
-					<option value="all" >Pièce</option >
-					{% for Piece in listePieces %}
-					<option value="{{ Piece.id }}">{{ Piece.intitule }}</option >
-					{% endfor %}
-				</select >
-			</div>
-			<div class="col-md-6 div_inline">
-				<select class="form-control select_liste_tache" name="" id="" >
-					<option value="all" >Etat</option >
-					<option value="" >Fait!</option >
-					<option value="" >Pas fait!</option >
-				</select >
-			</div>
-			</div>
-		</div>
-		
+		<div class="row" >
+			<div class="col-md-12 div_inline_flex" >
+				<div class="col-md-6 div_inline" >
+					<select class="form-control select_liste_tache" name="IDPiece" id="" >
+						<option value="all" >Pièce</option >
+						{% for Piece in listePieces %}
+							<option value="{{ Piece.id }}" >{{ Piece.intitule }}</option >
+						{% endfor %}
+					</select >
+				</div >
+				<div class="col-md-6 div_inline" >
+					<select class="form-control select_liste_tache" name="etat" id="" >
+						<option value="all" >Etat</option >
+						<option value="fait" >Fait!</option >
+						<option value="pas fait" >Pas fait!</option >
+					</select >
+				</div >
+			</div >
+		</div >
+	
 	</form >
-	<div class="container mt-5">
-	{% for Piece in listePieces %}
-		<h3 >{{ Piece.intitule }}</h3 >
-		<div class="box">
-			<div class="box-body">
-			{% for Tache in Piece.getTache() %}
-				<div ><a href="{{ path('tache', {'id':Tache.id}) }}"><i class="mdi {{ Tache.icon }}"></i> {{ Tache.intitule }}</a></div>
-			{% endfor %}
-			</div>
-		</div>
-	{% endfor %}
-	</div>
+	<div class="container mt-5" >
+		<div id="div_target_load_liste_tache" >
+		
+		</div >
+	</div >
 {% endblock %}

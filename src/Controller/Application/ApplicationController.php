@@ -30,7 +30,9 @@ class ApplicationController extends AbstractController
         $EntityManager = $this->getDoctrine()->getManager();
         $TacheManager = new TacheManager($EntityManager);
         $ListePieces = $TacheManager->getListeTacheFiltre($Request);
-        return $this->render('Application/Taches/listeTaches.html.twig', [
+
+
+        return $this->render('Application/Taches/listeTaches_load.html.twig', [
             'listePieces' => $ListePieces
         ]);
     }
